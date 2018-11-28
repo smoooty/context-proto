@@ -7,14 +7,17 @@ const Div = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  grid-column: 5;
-  ${'' /* grid-row: 1; */};
+  grid-column: 2;
+  grid-row: 1;
 `;
 
 const Svg = styled.svg`
-  width: ${getRems(300)};
+  width: 100%;
   overflow: visible;
-
+  position: absolute;
+  top: ${getRems(30)};
+  transform: rotate(${({ open }) => (open ? '45deg' : '0')});
+  transition: all 300ms cubic-bezier(0.67, 0.47, 0.23, 0.44);
   :hover {
     fill: purple;
     cursor: crosshair;
@@ -22,12 +25,11 @@ const Svg = styled.svg`
 `;
 
 const H1 = styled.h1`
-  font-family: monarch;
+  font-family: 'Sporting';
   color: red;
   position: absolute;
-  bottom: 0;
-  text-shadow: 4px 3px 6px orange;
-  text-shadow: ${getRems(4)} ${getRems(3)} ${getRems(6)} orange;
+  top: ${getRems(30)};
+  z-index: 2;
 `;
 
 export { Div, H1, Svg };

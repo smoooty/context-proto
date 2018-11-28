@@ -4,30 +4,32 @@ import { ShopDispatch } from '../shop-context';
 import {
   CartContainer,
   ProductDisplay,
-  Name,
   RemoveContainer,
   CheckoutContainer,
   H1,
   H2,
-  H3,
+  counterCss,
+  TextButtonCss,
 } from './styles';
 import Quantity from '../Product/Quantity';
 
 const Cart = () => {
-  const { cart, dispatch } = useContext(ShopDispatch);
+  const { cart, dispatch, state } = useContext(ShopDispatch);
 
   return (
-    <CartContainer onClick={() => console.log('click', cart)}>
+    <CartContainer
+      onClick={() => console.log('click', cart)}
+      open={state.isCartOpen}
+    >
       {cart.map(item => (
         <ProductDisplay>
           <H1>{item.name}</H1>
-          <H2>{item.amount}</H2>
-          <H3>${item.price}</H3>
+          <H2>${item.price}</H2>
           <Quantity
+            cssProps={{ counterCss, TextButtonCss }}
             product={item}
             initialAmount={item.amount}
-            buttonText={'UPDATE'}
-            onButtonClick={count =>
+            onChange={count =>
               dispatch({
                 type: 'update',
                 product: {

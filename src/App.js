@@ -88,21 +88,26 @@ function App() {
   // This is the useReducer declaration
   // Arguments are a state and action
   // Needs to return a state every case
-  const [state, dispatch] = useReducer(shopReducer, { view: 'shop' });
+  const [state, dispatch] = useReducer(shopReducer, {
+    view: 'shop',
+    isCartOpen: false,
+  });
 
   function shopReducer(state, action) {
     switch (action.type) {
       case 'add':
         setCart(addToCart(action.product, cart));
-        return { view: 'shop' };
+        return { view: 'shop', isCartOpen: state.isCartOpen };
       case 'update':
         setCart(updateCart(action.product, cart));
-        return { view: 'shop' };
+        return { view: 'shop', isCartOpen: state.isCartOpen };
       case 'remove':
         setCart(removeItem(action.product, cart));
-        return { view: 'shop' };
+        return { view: 'shop', isCartOpen: state.isCartOpen };
       case 'checkout':
-        return { view: 'checkout' };
+        return { view: 'checkout', isCartOpen: state.isCartOpen };
+      case 'cartOpen':
+        return { view: 'shop', isCartOpen: !state.isCartOpen };
       default:
         return state;
     }
@@ -130,7 +135,7 @@ function App() {
   return (
     <div className="App">
       {/* This is the context provider */}
-      <ShopDispatch.Provider value={{ cart, totalProducts, dispatch }}>
+      <ShopDispatch.Provider value={{ cart, totalProducts, state, dispatch }}>
         <Headline />
         {state.view === 'shop' && shopView}
         {state.view === 'checkout' && <Form />}

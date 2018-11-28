@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react';
 import { ShopDispatch } from '../shop-context';
 
 import Quantity from './Quantity';
-import { Div, Row1, H1, H2, P, Img } from './styles';
+import { Div, H1, H2, P, Img } from './styles';
 
 const Product = ({ id, product }) => {
   const { dispatch } = useContext(ShopDispatch);
@@ -26,20 +26,17 @@ const Product = ({ id, product }) => {
       gridColumn={product.position.gridcolumn}
       gridRow={product.position.gridrow}
     >
-      <Row1>
-        <H1>{product.title}</H1>
-        <H2>${product.price}</H2>
-      </Row1>
+      <div />
+      <H1>{product.title}</H1>
+      <H2>${product.price}</H2>
       <P>{product.description}</P>
-      <Row1>
-        <Quantity
-          product={product}
-          initialAmount={1}
-          buttonText={'BUY'}
-          onButtonClick={count => handleClick(count)}
-        />
-      </Row1>
-      <Img src={product.img} />
+      <Quantity
+        product={product}
+        initialAmount={1}
+        buttonText={'BUY'}
+        onButtonClick={count => handleClick(count)}
+      />
+      {/* <Img src={product.img} /> */}
     </Div>
   );
 };

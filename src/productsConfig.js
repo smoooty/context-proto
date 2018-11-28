@@ -1,7 +1,7 @@
 const productsConfig = [
   {
-    title: 'love',
-    price: 4.25,
+    title: 'Love',
+    price: 1,
     img:
       'https://us.123rf.com/450wm/sararoom/sararoom1410/sararoom141000047/32309749-vector-illustration-of-cartoon-crab-coloring-book.jpg?ver=6',
     description: 'The hand that mocked them and the heart that fed',
@@ -11,8 +11,8 @@ const productsConfig = [
     },
   },
   {
-    title: 'patience',
-    price: 69.75,
+    title: 'Patience',
+    price: 2,
     img:
       'https://us.123rf.com/450wm/ksenyasavva/ksenyasavva1603/ksenyasavva160300048/52986165-stock-vector-coloring-book-for-children-crab-.jpg?ver=6',
     description:
@@ -23,8 +23,8 @@ const productsConfig = [
     },
   },
   {
-    title: 'pain',
-    price: 666.25,
+    title: 'Pain',
+    price: 3,
     img: 'https://openclipart.org/download/298673/manwithacrab.svg',
     description:
       'My name is Ozymandias, king of kings: Look on my works, ye Mighty, and despair!',
@@ -34,8 +34,8 @@ const productsConfig = [
     },
   },
   {
-    title: 'tenders',
-    price: 3.15,
+    title: 'Tenders',
+    price: 4,
     img:
       'https://dinnerthendessert.com/wp-content/uploads/2018/03/Buffalo-Chicken-Tenders.jpg',
     description: 'These are the most delicious tendies',
@@ -45,8 +45,8 @@ const productsConfig = [
     },
   },
   {
-    title: 'scarjo',
-    price: 74.25,
+    title: 'Scarjo',
+    price: 5,
     img:
       'https://cdn0.thetruthaboutguns.com/wp-content/uploads/2014/10/scarlett-johansson-the-avenger-2_s878x1065.jpg',
     description: 'This a very beautiful actress',

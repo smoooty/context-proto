@@ -4,7 +4,7 @@ import { ShopDispatch } from '../shop-context';
 import { Div, H1, Svg } from './styles';
 
 const Scrub = () => {
-  const { totalProducts } = useContext(ShopDispatch);
+  const { totalProducts, dispatch, state } = useContext(ShopDispatch);
 
   return (
     <Div>
@@ -13,6 +13,8 @@ const Scrub = () => {
         id="Layer_1"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 139.1 132.7"
+        onClick={() => dispatch({ type: 'cartOpen' })}
+        open={state.isCartOpen}
       >
         <defs>
           <filter

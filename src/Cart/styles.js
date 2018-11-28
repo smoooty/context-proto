@@ -1,35 +1,39 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { getRems } from '../utilities/rems';
 import { borderWidth } from '../utilities/constants';
 
 const CartContainer = styled.div`
-  width: ${getRems(400)};
   position: relative;
-  ${'' /* grid-column: 10; */}
+  grid-column: 4 / 7;
+  grid-row: 1;
+  transition: all 300ms cubic-bezier(0.67, 0.47, 0.23, 0.44);
+  overflow: hidden;
+  width: ${({ open }) => (open ? '100%' : '0')};
+  height: ${({ open }) => (open ? '100%' : '0')};
+  transform: translateX(${({ open }) => (open ? '0' : '-30vw')});
+  opacity: ${({ open }) => (open ? '1' : '0')};
 `;
 
 const ProductDisplay = styled.div`
   text-align: left;
   display: flex;
-  background: linear-gradient(ghostwhite, grey);
-  border-radius: 0 ${getRems(30)} 0 ${getRems(30)};
-  padding: 0 ${getRems(10)};
-`;
-const Name = styled.h1`
-  text-align: left;
+  border: 3px solid black;
+  display: grid;
+  grid-template-columns: repeat(4, 25%);
 `;
 
 const RemoveContainer = styled.div`
   display: flex;
   align-items: center;
+  grid-row: 2;
 
   button {
     font-family: 'Sporting';
     background: linear-gradient(black, red);
     color: white;
-    border: ${getRems(borderWidth)} solid black;
-    border-radius: 0 ${getRems(10)} 0 ${getRems(10)};
-    margin-top: ${getRems(25)};
+    border: none;
+    width: 100%;
+    height: 100%;
     transition: color 300ms cubic-bezier(0.67, 0.47, 0.23, 0.44);
 
     :hover {
@@ -61,31 +65,41 @@ const CheckoutContainer = styled.div`
 `;
 
 const H1 = styled.h1`
-  font-family: 'Sporting';
+  font-family: 'Monarch';
+  text-align: right;
   font-size: ${getRems(24)};
+  grid-column: 1;
+  display: flex;
+  align-items: flex-end;
 `;
 
 const H2 = styled.h2`
-  font-family: 'Sporting';
-  font-size: ${getRems(14)};
+  font-family: 'Sporting-Normal';
+  font-size: ${getRems(16)};
+  text-align: right;
+  grid-column: 2;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
 `;
 
-const H3 = styled.h3`
-  font-family: 'Sporting-Normal';
-  font-size: ${getRems(12)};
+const counterCss = css`
+  grid-column: 4;
+  grid-row: 1;
+  margin: 0;
+`;
+
+const TextButtonCss = css`
+  grid-column: 4;
 `;
 
 export {
   CartContainer,
   ProductDisplay,
-  Name,
   RemoveContainer,
   CheckoutContainer,
   H1,
   H2,
-  H3,
+  counterCss,
+  TextButtonCss,
 };
-
-// background: linear-gradient(#eee, #333);
-//   -webkit-background-clip: text;
-//   -webkit-text-fill-color: transparent;

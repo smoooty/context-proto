@@ -9,27 +9,30 @@ const cursorIcons = {
 
 const Div = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
+  grid-column: 2;
+  ${({ css }) => css};
 `;
 
 const H3 = styled.h3`
-  font-family: 'Monarch';
+  font-family: 'Sporting-Normal';
   padding: 0 ${getRems(10)};
 `;
 
 const Button = styled.button`
-  font-family: 'Sporting';
-  font-size: ${getRems(14)};
-  border: ${getRems(borderWidth)} solid black;
-  border-radius: 0 ${getRems(10)} 0 ${getRems(10)};
-  background: linear-gradient(ghostwhite 18%, blue);
+  font-family: 'Sporting-Normal';
+  font-size: ${getRems(18)};
+  border: none;
   -webkit-appearance: none;
   transition: background 500ms cubic-bezier(0.17, 0.67, 0.83, 0.67);
   :hover {
-    background: ghostwhite;
     cursor: ${({ type }) => cursorIcons[type]};
   }
+`;
+
+const Span = styled.span`
+  font-family: 'Sporting-Normal';
 `;
 
 const Row1 = styled.div`
@@ -42,18 +45,19 @@ const Row1 = styled.div`
 const TextButton = styled.button`
   background: linear-gradient(black, white);
   color: white;
-  border: ${getRems(borderWidth)} solid black;
-  border-radius: ${getRems(10)} 0 ${getRems(10)} 0;
   font-family: 'Sporting';
-
+  border: none;
+  width: 100%;
+  height: 100%;
+  display: flex;
   -webkit-appearance: none;
-  ${'' /* width: auto; */}
   transition: all 300ms cubic-bezier(0.67, 0.47, 0.23, 0.44);
 
   :hover {
-    ${'' /* width: 20%; */}
     cursor: cell;
     background: black;
   }
+  ${({ css }) => css};
 `;
-export { Div, H3, Button, Row1, TextButton };
+
+export { Div, H3, Span, Button, Row1, TextButton };
