@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import { ShopDispatch } from '../shop-context';
 
 import Quantity from './Quantity';
@@ -21,12 +21,7 @@ const Product = ({ id, product }) => {
   }
 
   return (
-    <Div
-      id={id}
-      gridColumn={product.position.gridcolumn}
-      gridRow={product.position.gridrow}
-    >
-      <div />
+    <Div id={id} gridArea={product.gridArea}>
       <H1>{product.title}</H1>
       <H2>${product.price}</H2>
       <P>{product.description}</P>
@@ -35,6 +30,7 @@ const Product = ({ id, product }) => {
         initialAmount={1}
         buttonText={'BUY'}
         onButtonClick={count => handleClick(count)}
+        cssProps={{ counterCss: product.counterCss }}
       />
       {/* <Img src={product.img} /> */}
     </Div>

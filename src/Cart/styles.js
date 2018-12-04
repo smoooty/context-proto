@@ -1,17 +1,23 @@
 import styled, { css } from 'styled-components';
+import query from '../utilities/layout';
 import { getRems } from '../utilities/rems';
 import { borderWidth } from '../utilities/constants';
 
 const CartContainer = styled.div`
+  grid-area: cart;
+
   position: relative;
-  grid-column: 4 / 7;
-  grid-row: 1;
   transition: all 300ms cubic-bezier(0.67, 0.47, 0.23, 0.44);
   overflow: hidden;
   width: ${({ open }) => (open ? '100%' : '0')};
   height: ${({ open }) => (open ? '100%' : '0')};
   transform: translateX(${({ open }) => (open ? '0' : '-30vw')});
   opacity: ${({ open }) => (open ? '1' : '0')};
+  grid-row: 1;
+
+  ${query.small`
+    grid-row: 2;
+  `};
 `;
 
 const ProductDisplay = styled.div`
@@ -20,6 +26,7 @@ const ProductDisplay = styled.div`
   border: 3px solid black;
   display: grid;
   grid-template-columns: repeat(4, 25%);
+  margin-bottom: ${getRems(2)};
 `;
 
 const RemoveContainer = styled.div`
@@ -87,6 +94,9 @@ const counterCss = css`
   grid-column: 4;
   grid-row: 1;
   margin: 0;
+  ${query.small`
+    transform: none;
+  `};
 `;
 
 const TextButtonCss = css`

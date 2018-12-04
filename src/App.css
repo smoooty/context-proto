@@ -1,40 +1,43 @@
 .App {
   text-align: center;
   display: grid;
-  /* grid-template-columns: repeat(20, minmax(7vmin, 5vw)); */
-  grid-template-columns: repeat(auto-fit, minmax(15vw, 20fr));
-  /* grid-template-rows: repeat(10, minmax(10vmin, 10vh)); */
-  grid-auto-rows: minmax(200px, auto);
-  grid-auto-flow: row;
+  grid-template-columns: repeat(7, minmax(5rem, 1fr) [col-start]);
+  grid-template-areas:
+    'text scrub . cart cart cart cart'
+    'prod1 prod1 . prod2 prod2 prod2 prod2'
+    '. . prod3 prod3 prod3 prod4 prod4'
+    'prod5 prod5 . . . . .';
+  grid-template-rows: repeat(auto-fit, minmax(200px, 1fr));
+  grid-auto-flow: column;
   grid-gap: 1rem;
+  max-width: 1200px;
+  padding: 1rem;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@media (max-width: 850px) {
+  .App {
+    grid-template-columns: repeat(6, minmax(5rem, 1fr) [col-start]);
+    grid-template-areas:
+      'text scrub . cart cart cart'
+      'prod1 prod1 prod1 prod2 prod2 prod2'
+      'prod3 prod3 prod3 prod2 prod2 prod2'
+      '. . . prod4 prod4 prod4'
+      'prod5 prod5 prod5 . . . ';
   }
-  to {
-    transform: rotate(360deg);
+}
+
+@media (max-width: 550px) {
+  .App {
+    grid-gap: 0.5rem;
+    padding: 0.5rem;
+    grid-template-columns: repeat(4, minmax(5rem, 1fr));
+    grid-auto-rows: auto;
+    grid-template-areas:
+      'text scrub . .'
+      'cart cart cart cart'
+      'prod1 prod1 prod2 prod2'
+      'prod3 prod3 prod3 prod3'
+      'prod4 prod4 prod5 prod5';
   }
 }
 

@@ -5,10 +5,7 @@ const productsConfig = [
     img:
       'https://us.123rf.com/450wm/sararoom/sararoom1410/sararoom141000047/32309749-vector-illustration-of-cartoon-crab-coloring-book.jpg?ver=6',
     description: 'The hand that mocked them and the heart that fed',
-    position: {
-      gridcolumn: 1,
-      gridrow: 3,
-    },
+    gridArea: 'prod1',
   },
   {
     title: 'Patience',
@@ -17,10 +14,7 @@ const productsConfig = [
       'https://us.123rf.com/450wm/ksenyasavva/ksenyasavva1603/ksenyasavva160300048/52986165-stock-vector-coloring-book-for-children-crab-.jpg?ver=6',
     description:
       'Of that colossal wreck, boundless and bare The lone and level sands stretch far away',
-    position: {
-      gridcolumn: 12,
-      gridrow: 5,
-    },
+    gridArea: 'prod2',
   },
   {
     title: 'Pain',
@@ -28,10 +22,8 @@ const productsConfig = [
     img: 'https://openclipart.org/download/298673/manwithacrab.svg',
     description:
       'My name is Ozymandias, king of kings: Look on my works, ye Mighty, and despair!',
-    position: {
-      gridcolumn: 5,
-      gridrow: 6,
-    },
+    gridArea: 'prod3',
+    counterCss: 'transform: rotate(0deg) !important',
   },
   {
     title: 'Tenders',
@@ -39,21 +31,16 @@ const productsConfig = [
     img:
       'https://dinnerthendessert.com/wp-content/uploads/2018/03/Buffalo-Chicken-Tenders.jpg',
     description: 'These are the most delicious tendies',
-    position: {
-      gridcolumn: 8,
-      gridrow: 11,
-    },
+    gridArea: 'prod4',
   },
   {
-    title: 'Scarjo',
+    title: 'Mogue',
     price: 5,
     img:
       'https://cdn0.thetruthaboutguns.com/wp-content/uploads/2014/10/scarlett-johansson-the-avenger-2_s878x1065.jpg',
-    description: 'This a very beautiful actress',
-    position: {
-      gridcolumn: 2,
-      gridrow: 10,
-    },
+    description:
+      "Half sunk, a shatter'd visage lies, whose frown And wrinkled lip and sneer of cold command",
+    gridArea: 'prod5',
   },
 ];
 

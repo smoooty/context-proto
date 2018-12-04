@@ -1,5 +1,5 @@
-import React, { useState, useEffect, Fragment } from 'react';
-import { Div, H3, Button, Row1, TextButton, Span } from './styles';
+import React, { useState, useEffect } from 'react';
+import { Div, H3, Button, TextButton, Span } from './styles';
 
 const Quantity = ({
   initialAmount,

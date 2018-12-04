@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import { getRems } from '../../utilities/rems';
-import { borderWidth } from '../../utilities/constants';
 
 const cursorIcons = {
   '+': 'zoom-in',
@@ -12,6 +11,10 @@ const Div = styled.div`
   justify-content: flex-end;
   align-items: center;
   grid-column: 2;
+
+  @media (max-width: 450px) {
+    transform: rotate(90deg);
+  }
   ${({ css }) => css};
 `;
 
@@ -22,7 +25,7 @@ const H3 = styled.h3`
 
 const Button = styled.button`
   font-family: 'Sporting-Normal';
-  font-size: ${getRems(18)};
+  font-size: ${getRems(20)};
   border: none;
   -webkit-appearance: none;
   transition: background 500ms cubic-bezier(0.17, 0.67, 0.83, 0.67);
