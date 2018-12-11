@@ -34,19 +34,15 @@ function addToCart(product, cart) {
 }
 
 function updateCart(product, cart) {
-  console.log('product - update', product);
   const scopeState = cart;
 
   const filteredState = scopeState.filter(item => item.name === product.name);
-  //console.log(scopeState.splice(filteredState));
-  console.log('filteredState', filteredState);
-  //filteredState[0].amount = product.amount;
   filteredState[0].price =
     (filteredState[0].price / filteredState[0].amount) * product.amount;
   filteredState[0].amount = product.amount;
-  console.log(filteredState[0]);
-  console.log('scopeState', scopeState);
-
+  if (product.amount < 1) {
+    return removeItem(product, cart);
+  }
   const array = [];
   array.push(...scopeState);
   return array;
@@ -54,6 +50,7 @@ function updateCart(product, cart) {
 
 // Remove item from cart function
 function removeItem(product, cart) {
+  console.log('cart', cart, product);
   const scopeState = cart;
   return scopeState.filter(item => item.name !== product.name);
 }

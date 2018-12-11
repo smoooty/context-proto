@@ -1,15 +1,23 @@
 import styled from 'styled-components';
 import { getRems } from '../utilities/rems';
+import { query } from '../utilities/layout';
 
 const Div = styled.div`
-  position: relative;
-  width: ${getRems(100)};
-  display: flex;
+  display: grid;
+  grid-area: special;
+  background: repeating-linear-gradient(
+    45deg,
+    yellow,
+    yellow 20px,
+    transparent 20px,
+    transparent 40px
+  );
+  grid-template-columns: repeat(3, auto);
+  ${query.max`grid-template-rows: repeat(5, auto);`};
 `;
 
 const Svg = styled.svg`
-  position: absolute;
-  width: 100%;
+  width: ${getRems(100)};
   :hover {
     fill: purple;
     cursor: pointer;
@@ -17,20 +25,29 @@ const Svg = styled.svg`
 `;
 
 const H1 = styled.h1`
-  color: red;
+  color: black;
   font-family: 'Monarch';
   z-index: 2;
-  width: 100%;
+  width: ${getRems(150)};
   pointer-events: none;
+  border: ${getRems(4)} solid black;
+  border-radius: 50%;
+  padding: ${getRems(30)};
+  grid-row: 2;
 `;
 
-const H2 = styled.h2`
-  color: green;
-  font-family: 'Monarch';
-  z-index: 2;
-  width: 100%;
-  text-align: right;
-  margin-right: -100%;
+const Logo1 = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  ${query.max`transform: rotate(90deg); grid-row: 1;`};
 `;
 
-export { Div, H1, H2, Svg };
+const Logo2 = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  ${query.max`transform: rotate(90deg); grid-row: 2`};
+`;
+
+export { Div, H1, Svg, Logo1, Logo2 };

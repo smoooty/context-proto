@@ -6,12 +6,25 @@
     'text scrub . cart cart cart cart'
     'prod1 prod1 . prod2 prod2 prod2 prod2'
     '. . prod3 prod3 prod3 prod4 prod4'
-    'prod5 prod5 . . . . .';
+    'prod5 prod5 . . . . .'
+    'special special special special special special special';
   grid-template-rows: repeat(auto-fit, minmax(200px, 1fr));
   grid-auto-flow: column;
   grid-gap: 1rem;
   max-width: 1200px;
   padding: 1rem;
+}
+
+@media (min-width: 1200px) {
+  .App {
+    grid-template-areas:
+      'text scrub . cart cart cart cart special'
+      'prod1 prod1 . prod2 prod2 prod2 prod2 special'
+      '. . prod3 prod3 prod3 prod4 prod4 special'
+      'prod5 prod5 . . . . . special'
+      'logo1 logo1 . logo2 logo2 . . special';
+    max-width: 1600px;
+  }
 }
 
 @media (max-width: 850px) {
@@ -22,7 +35,8 @@
       'prod1 prod1 prod1 prod2 prod2 prod2'
       'prod3 prod3 prod3 prod2 prod2 prod2'
       '. . . prod4 prod4 prod4'
-      'prod5 prod5 prod5 . . . ';
+      'prod5 prod5 prod5 . . . '
+      'special special special special special special';
   }
 }
 
@@ -37,7 +51,9 @@
       'cart cart cart cart'
       'prod1 prod1 prod2 prod2'
       'prod3 prod3 prod3 prod3'
-      'prod4 prod4 prod5 prod5';
+      'prod4 prod4 prod5 prod5'
+      'special special special special'
+      'special special special special';
   }
 }
 

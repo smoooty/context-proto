@@ -13,6 +13,7 @@ import Product from './Product';
 import Scrub from './Scrub';
 import Form from './Form';
 import Circle from './Circle';
+import CartIcon from './CartIcon';
 
 function App() {
   // Initial cart value,
@@ -20,7 +21,7 @@ function App() {
   // Or default to empty array
   const intitialCart = JSON.parse(window.localStorage.getItem('cart')) || [];
   // This is how we declare the state
-  const [cart, setCart] = useState(intitialCart);
+  //const [cart, setCart] = useState(intitialCart);
   // This is the initial total of items in cart
   const intitialTotal = intitialCart.reduce(
     (acc, item) => acc + item.amount,
@@ -34,23 +35,47 @@ function App() {
   const [state, dispatch] = useReducer(shopReducer, {
     view: 'shop',
     isCartOpen: false,
+    cart: intitialCart,
   });
 
   function shopReducer(state, action) {
     switch (action.type) {
       case 'add':
-        setCart(addToCart(action.product, cart));
-        return { view: 'shop', isCartOpen: state.isCartOpen };
+        //setCart(addToCart(action.product, cart));
+        const addedCart = addToCart(action.product, state.cart);
+        return {
+          view: 'shop',
+          isCartOpen: state.isCartOpen,
+          cart: addedCart,
+        };
       case 'update':
-        setCart(updateCart(action.product, cart));
-        return { view: 'shop', isCartOpen: state.isCartOpen };
+        //setCart(updateCart(action.product, cart));
+        const updatedCart = updateCart(action.product, state.cart);
+        return {
+          view: 'shop',
+          isCartOpen: state.isCartOpen,
+          cart: updatedCart,
+        };
       case 'remove':
-        setCart(removeItem(action.product, cart));
-        return { view: 'shop', isCartOpen: state.isCartOpen };
+        //setCart(removeItem(action.product, cart));
+        const removedCart = removeItem(action.product, state.cart);
+        return {
+          view: 'shop',
+          isCartOpen: state.isCartOpen,
+          cart: removedCart,
+        };
       case 'checkout':
-        return { view: 'checkout', isCartOpen: state.isCartOpen };
+        return {
+          view: 'checkout',
+          isCartOpen: state.isCartOpen,
+          cart: state.cart,
+        };
       case 'cartOpen':
-        return { view: 'shop', isCartOpen: !state.isCartOpen };
+        return {
+          view: 'shop',
+          isCartOpen: !state.isCartOpen,
+          cart: state.cart,
+        };
       default:
         return state;
     }
@@ -59,11 +84,11 @@ function App() {
   // Second arg to useEffect means it will only update when specified var changes
   useEffect(
     () => {
-      console.log('use effect', cart);
-      window.localStorage.setItem('cart', JSON.stringify(cart));
-      setTotal(cart.reduce((acc, item) => acc + item.amount, 0));
+      //console.log('use effect', cart, state.cart);
+      window.localStorage.setItem('cart', JSON.stringify(state.cart));
+      setTotal(state.cart.reduce((acc, item) => acc + item.amount, 0));
     },
-    [cart]
+    [state.cart]
   );
 
   const shopView = (
@@ -78,9 +103,10 @@ function App() {
   return (
     <div className="App">
       {/* This is the context provider */}
-      <ShopDispatch.Provider value={{ cart, totalProducts, state, dispatch }}>
+      <ShopDispatch.Provider value={{ totalProducts, state, dispatch }}>
         <Headline />
         <Circle />
+        <CartIcon />
         {state.view === 'shop' && shopView}
         {state.view === 'checkout' && <Form />}
       </ShopDispatch.Provider>

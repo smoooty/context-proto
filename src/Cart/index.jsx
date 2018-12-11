@@ -14,14 +14,11 @@ import {
 import Quantity from '../Product/Quantity';
 
 const Cart = () => {
-  const { cart, dispatch, state } = useContext(ShopDispatch);
+  const { dispatch, state } = useContext(ShopDispatch);
 
   return (
-    <CartContainer
-      onClick={() => console.log('click', cart)}
-      open={state.isCartOpen}
-    >
-      {cart.map(item => (
+    <CartContainer open={state.isCartOpen}>
+      {state.cart.map(item => (
         <ProductDisplay>
           <H1>{item.name}</H1>
           <H2>${item.price}</H2>
@@ -51,7 +48,7 @@ const Cart = () => {
           </RemoveContainer>
         </ProductDisplay>
       ))}
-      {cart.length > 0 && (
+      {state.cart.length > 0 && (
         <CheckoutContainer>
           <button onClick={() => dispatch({ type: 'checkout' })}>
             checkout

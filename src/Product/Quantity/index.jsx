@@ -29,9 +29,6 @@ const Quantity = ({
     [count]
   );
 
-  if (cssProps != null) {
-    console.log(cssProps);
-  }
   return (
     <>
       {buttonText != null && (
@@ -45,7 +42,7 @@ const Quantity = ({
           {buttonText}
         </TextButton>
       )}
-      <Div css={cssProps != null && cssProps.counterCss}>
+      <Div css={cssProps != undefined && cssProps.counterCss}>
         <Button type={'-'} onClick={() => handleCount(-1)}>
           -
         </Button>

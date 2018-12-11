@@ -6,6 +6,11 @@ export const query = {
       ${css(...args)};
     }
   `,
+  max: (...args) => css`
+    @media (min-width: 1200px) {
+      ${css(...args)};
+    }
+  `,
 };
 
 export default query;

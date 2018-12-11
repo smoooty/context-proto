@@ -42,6 +42,15 @@ const productsConfig = [
       "Half sunk, a shatter'd visage lies, whose frown And wrinkled lip and sneer of cold command",
     gridArea: 'prod5',
   },
+  // {
+  //   title: 'hi',
+  //   price: 5,
+  //   img:
+  //     'https://cdn0.thetruthaboutguns.com/wp-content/uploads/2014/10/scarlett-johansson-the-avenger-2_s878x1065.jpg',
+  //   description:
+  //     "Half sunk, a shatter'd visage lies, whose frown And wrinkled lip and sneer of cold command",
+  //   gridArea: 'auto / 4 / auto / 7',
+  // },
 ];
 
 export default productsConfig;
