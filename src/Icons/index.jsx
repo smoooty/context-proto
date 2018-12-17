@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Div, H1, Svg, Logo1, Logo2 } from './styles.js';
 
-const CartIcon = () => (
+const Icons = () => (
   <Div>
     <Logo2>
       <Svg
@@ -23,4 +23,4 @@ const CartIcon = () => (
   </Div>
 );
 
-export default CartIcon;
+export default Icons;

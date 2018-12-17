@@ -1,10 +1,10 @@
-import React, { useContext, useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 
-import { ShopDispatch } from '../shop-context';
+// import { ShopDispatch } from '../shop-context';
 import { FormContainer, H1, TextInput, ErrorMsg } from './styles';
 const Form = () => {
   const [formData, setForm] = useState('');
-  const { cart, dispatch } = useContext(ShopDispatch);
+  // const { cart, dispatch } = useContext(ShopDispatch);
 
   useEffect(
     () => {

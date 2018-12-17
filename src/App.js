@@ -13,7 +13,7 @@ import Product from './Product';
 import Scrub from './Scrub';
 import Form from './Form';
 import Circle from './Circle';
-import CartIcon from './CartIcon';
+import Icons from './Icons';
 
 function App() {
   // Initial cart value,
@@ -25,6 +25,7 @@ function App() {
     (acc, item) => acc + item.amount,
     0
   );
+  // Initial total price of all items in cart
   const intitialPrice = intitialCart.reduce((acc, item) => acc + item.price, 0);
   const [totalProducts, setTotal] = useState({
     totalAmount: intitialTotal,
@@ -51,7 +52,6 @@ function App() {
         };
       case 'update':
         const updatedCart = updateCart(action.product, state.cart);
-        console.log('update', updatedCart);
         return {
           view: 'shop',
           isCartOpen: updatedCart.length > 0 ? state.isCartOpen : false,
@@ -98,7 +98,7 @@ function App() {
       <Cart />
       <Scrub />
       {productsConfig.map((product, i) => (
-        <Product id={`product${i}`} product={product} />
+        <Product key={product.title} id={`product${i}`} product={product} />
       ))}
     </>
   );
@@ -108,7 +108,7 @@ function App() {
       <ShopDispatch.Provider value={{ totalProducts, state, dispatch }}>
         <Headline />
         <Circle />
-        <CartIcon />
+        <Icons />
         {state.view === 'shop' && shopView}
         {state.view === 'checkout' && <Form />}
       </ShopDispatch.Provider>

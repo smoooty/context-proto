@@ -16,7 +16,8 @@
     { "src": "^/(.*)", "dest": "/index.html" }
   ],
   "github": {
-    "enabled": true
+    "enabled": true,
+    "silent": true
   },
   "alias": ["work-buy-consume-die"]
 }

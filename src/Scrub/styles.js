@@ -41,8 +41,12 @@ const H2 = styled.h2`
   font-size: 2em;
   grid-column: 2;
   pointer-events: none;
-  ${'' /* transform: rotate(90deg); */} display: flex;
+  display: flex;
   justify-content: center;
+  transition: opacity 200ms cubic-bezier(0.67, 0.47, 0.23, 0.44);
+  opacity: ${({ open }) => (open ? '1' : '0')};
+  transition: transform 350ms cubic-bezier(0.67, 0.47, 0.23, 0.44);
+  transform: ${({ open }) => (open ? 'translateY(0%)' : 'translateY(100%)')};
 `;
 
 export { Div, H1, H2, Svg };

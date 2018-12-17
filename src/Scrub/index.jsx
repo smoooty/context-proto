@@ -9,7 +9,7 @@ const Scrub = () => {
   return (
     <Div>
       <H1>{totalProducts.totalAmount}</H1>
-      <H2>{state.isCartOpen && `$${totalProducts.totalPrice}.00`}</H2>
+      <H2 open={state.isCartOpen}>{`$${totalProducts.totalPrice}.00`}</H2>
       <Svg
         id="Layer_1"
         xmlns="http://www.w3.org/2000/svg"

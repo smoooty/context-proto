@@ -19,7 +19,7 @@ const Cart = () => {
   return (
     <CartContainer open={state.isCartOpen}>
       {state.cart.map(item => (
-        <ProductDisplay>
+        <ProductDisplay key={item.name}>
           <H1>{item.name}</H1>
           <H2>${item.price}</H2>
           <Quantity

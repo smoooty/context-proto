@@ -2,14 +2,13 @@ import React, { useContext } from 'react';
 import { ShopDispatch } from '../shop-context';
 
 import Quantity from './Quantity';
-import { Div, H1, H2, P, Img } from './styles';
+import { Div, H1, H2, P } from './styles';
 
 const Product = ({ id, product }) => {
   const { dispatch } = useContext(ShopDispatch);
 
+  // Dispatch 'add to cart' w/ specified product, amount, price
   function handleClick(count) {
-    console.log('count', count, product);
-
     dispatch({
       type: 'add',
       product: {

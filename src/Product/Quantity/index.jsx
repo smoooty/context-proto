@@ -24,16 +24,16 @@ const Quantity = ({
 
   useEffect(
     () => {
-      onChange != null && onChange(count);
+      onChange && onChange(count);
     },
     [count]
   );
 
   return (
     <>
-      {buttonText != null && (
+      {buttonText && (
         <TextButton
-          css={cssProps != null && cssProps.TextButtonCss}
+          css={cssProps && cssProps.TextButtonCss}
           onClick={() =>
             // Kind of hacky little solution to set count back to 1 for Product components
             onButtonClick(count) || (initialAmount === 1 && setCount(1))
@@ -42,8 +42,8 @@ const Quantity = ({
           {buttonText}
         </TextButton>
       )}
-      <Div css={cssProps != undefined && cssProps.counterCss}>
-        <Button type={'-'} onClick={() => handleCount(-1)}>
+      <Div css={cssProps && cssProps.counterCss}>
+        <Button type={'-'} onClick={() => count > 0 && handleCount(-1)}>
           -
         </Button>
         <Span>•</Span>

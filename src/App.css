@@ -59,20 +59,20 @@
 
 @font-face {
   font-family: 'Monarch';
-  src: url('./MONARCH_1.1.woff');
+  src: url('_Fonts/MONARCH_1.1.woff');
 }
 
 @font-face {
   font-family: 'Sporting';
-  src: url('./sporting_grotesque_gras.woff');
+  src: url('_Fonts/sporting_grotesque_gras.woff');
 }
 
 @font-face {
   font-family: 'Sporting-Normal';
-  src: url('./sporting_grotesque_normal.woff');
+  src: url('_Fonts/sporting_grotesque_normal.woff');
 }
 
 @font-face {
   font-family: 'Junicode';
-  src: url('./Junicode.woff');
+  src: url('_Fonts/Junicode.woff');
 }

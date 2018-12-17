@@ -33,6 +33,7 @@ function addToCart(product, cart) {
   return array;
 }
 
+// Update cart -> plus and minus incrementers
 function updateCart(product, cart) {
   const scopeState = cart;
 
@@ -50,7 +51,6 @@ function updateCart(product, cart) {
 
 // Remove item from cart function
 function removeItem(product, cart) {
-  console.log('cart', cart, product);
   const scopeState = cart;
   return scopeState.filter(item => item.name !== product.name);
 }
