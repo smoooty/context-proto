@@ -9,7 +9,7 @@ const Div = styled.div`
   grid-gap: 5px;
   display: grid;
   grid-template-columns: repeat(2, calc(50% - 5px));
-
+  z-index: 5;
   ${query.small`
     min-height: 350px;
   `};

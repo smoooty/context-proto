@@ -10,4 +10,4 @@ This is just a little prototype of an shopping cart using react hooks.
 
 Look, ma, no class components!
 
-[check it](http://workbuyconsumedie.surge.sh/)
+[check it](https://work-buy-consume-die.now.sh/)

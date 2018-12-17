@@ -19,8 +19,7 @@ const Div = styled.div`
 const Svg = styled.svg`
   width: ${getRems(100)};
   :hover {
-    fill: purple;
-    cursor: pointer;
+    ${'' /* fill: purple; */} cursor: pointer;
   }
 `;
 

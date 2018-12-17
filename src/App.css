@@ -3,7 +3,7 @@
   display: grid;
   grid-template-columns: repeat(7, minmax(5rem, 1fr) [col-start]);
   grid-template-areas:
-    'text scrub . cart cart cart cart'
+    'text scrub scrub cart cart cart cart'
     'prod1 prod1 . prod2 prod2 prod2 prod2'
     '. . prod3 prod3 prod3 prod4 prod4'
     'prod5 prod5 . . . . .'
@@ -18,7 +18,7 @@
 @media (min-width: 1200px) {
   .App {
     grid-template-areas:
-      'text scrub . cart cart cart cart special'
+      'text scrub scrub cart cart cart cart special'
       'prod1 prod1 . prod2 prod2 prod2 prod2 special'
       '. . prod3 prod3 prod3 prod4 prod4 special'
       'prod5 prod5 . . . . . special'
@@ -31,7 +31,7 @@
   .App {
     grid-template-columns: repeat(6, minmax(5rem, 1fr) [col-start]);
     grid-template-areas:
-      'text scrub . cart cart cart'
+      'text scrub scrub cart cart cart'
       'prod1 prod1 prod1 prod2 prod2 prod2'
       'prod3 prod3 prod3 prod2 prod2 prod2'
       '. . . prod4 prod4 prod4'

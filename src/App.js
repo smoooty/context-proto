@@ -20,14 +20,16 @@ function App() {
   // Get value from localStorage
   // Or default to empty array
   const intitialCart = JSON.parse(window.localStorage.getItem('cart')) || [];
-  // This is how we declare the state
-  //const [cart, setCart] = useState(intitialCart);
   // This is the initial total of items in cart
   const intitialTotal = intitialCart.reduce(
     (acc, item) => acc + item.amount,
     0
   );
-  const [totalProducts, setTotal] = useState(intitialTotal);
+  const intitialPrice = intitialCart.reduce((acc, item) => acc + item.price, 0);
+  const [totalProducts, setTotal] = useState({
+    totalAmount: intitialTotal,
+    totalPrice: intitialPrice,
+  });
 
   // This is the useReducer declaration
   // Arguments are a state and action
@@ -41,7 +43,6 @@ function App() {
   function shopReducer(state, action) {
     switch (action.type) {
       case 'add':
-        //setCart(addToCart(action.product, cart));
         const addedCart = addToCart(action.product, state.cart);
         return {
           view: 'shop',
@@ -49,19 +50,18 @@ function App() {
           cart: addedCart,
         };
       case 'update':
-        //setCart(updateCart(action.product, cart));
         const updatedCart = updateCart(action.product, state.cart);
+        console.log('update', updatedCart);
         return {
           view: 'shop',
-          isCartOpen: state.isCartOpen,
+          isCartOpen: updatedCart.length > 0 ? state.isCartOpen : false,
           cart: updatedCart,
         };
       case 'remove':
-        //setCart(removeItem(action.product, cart));
         const removedCart = removeItem(action.product, state.cart);
         return {
           view: 'shop',
-          isCartOpen: state.isCartOpen,
+          isCartOpen: removedCart.length > 0 ? state.isCartOpen : false,
           cart: removedCart,
         };
       case 'checkout':
@@ -84,9 +84,11 @@ function App() {
   // Second arg to useEffect means it will only update when specified var changes
   useEffect(
     () => {
-      //console.log('use effect', cart, state.cart);
       window.localStorage.setItem('cart', JSON.stringify(state.cart));
-      setTotal(state.cart.reduce((acc, item) => acc + item.amount, 0));
+      setTotal({
+        totalAmount: state.cart.reduce((acc, item) => acc + item.amount, 0),
+        totalPrice: state.cart.reduce((acc, item) => acc + item.price, 0),
+      });
     },
     [state.cart]
   );

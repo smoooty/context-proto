@@ -12,6 +12,11 @@ const H1 = styled.h1`
   grid-row: 1;
   grid-column: 1 / 2;
   word-break: break-all;
+  position: absolute;
+  margin: 0;
+  font-size: ${getRems(100)};
+  left: ${getRems(-15)};
+  top: ${getRems(-5)};
 `;
 
 export { H1 };

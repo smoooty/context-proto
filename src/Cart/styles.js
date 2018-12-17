@@ -4,6 +4,7 @@ import { getRems } from '../utilities/rems';
 import { borderWidth } from '../utilities/constants';
 
 const CartContainer = styled.div`
+  z-index: 4;
   grid-area: cart;
 
   position: relative;
@@ -27,6 +28,7 @@ const ProductDisplay = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 25%);
   margin-bottom: ${getRems(2)};
+  background: white;
 `;
 
 const RemoveContainer = styled.div`
@@ -67,7 +69,6 @@ const CheckoutContainer = styled.div`
       background: black;
       color: #21ff21;
     }
-
   }
 `;
 
