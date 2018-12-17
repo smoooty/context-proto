@@ -4,12 +4,13 @@ import { getRems } from '../utilities/rems';
 
 const Div = styled.div`
   overflow: auto;
+  position: relative;
   background: white;
   border: ${getRems(3)} solid black;
   grid-gap: 5px;
   display: grid;
   grid-template-columns: repeat(2, calc(50% - 5px));
-  z-index: 5;
+  z-index: 6;
   ${query.small`
     min-height: 350px;
   `};
