@@ -1,10 +1,15 @@
 import styled from 'styled-components';
 import { getRems } from '../utilities/rems';
+import query from '../utilities/layout';
 
 const FormContainer = styled.form`
-  grid-column: 2 / 10;
-  grid-row: 3 / 10;
+  position: relative;
+  z-index: 6;
+  grid-column: 2 / end;
+  grid-row: 3 / auto;
   align-items: start;
+  background: #ffffff85;
+  ${query.small`grid-row: 4 / auto;`};
 `;
 
 const H1 = styled.h1`
