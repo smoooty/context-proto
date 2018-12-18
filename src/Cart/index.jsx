@@ -48,6 +48,7 @@ const Cart = () => {
           </RemoveContainer>
         </ProductDisplay>
       ))}
+      {/* If there are items in the cart then allow checkout */}
       {state.cart.length > 0 && (
         <CheckoutContainer>
           <button onClick={() => dispatch({ type: 'checkout' })}>

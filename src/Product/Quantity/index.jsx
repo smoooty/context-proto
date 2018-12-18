@@ -10,6 +10,7 @@ const Quantity = ({
 }) => {
   const [count, setCount] = useState(initialAmount);
 
+  // Increment or decrement amount
   function handleCount(action) {
     setCount(count + action);
   }
