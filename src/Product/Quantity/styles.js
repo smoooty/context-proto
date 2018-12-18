@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { getRems } from '../../utilities/rems';
+import query from '../../utilities/layout';
 
 const cursorIcons = {
   '+': 'zoom-in',
@@ -21,6 +22,7 @@ const Div = styled.div`
 const H3 = styled.h3`
   font-family: 'Sporting-Normal';
   padding: 0 ${getRems(10)};
+  ${query.small`padding-left: 0;`};
 `;
 
 const Button = styled.button`
@@ -28,6 +30,7 @@ const Button = styled.button`
   font-size: ${getRems(20)};
   border: none;
   -webkit-appearance: none;
+  background: none;
   transition: background 500ms cubic-bezier(0.17, 0.67, 0.83, 0.67);
   :hover {
     cursor: ${({ type }) => cursorIcons[type]};

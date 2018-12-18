@@ -11,7 +11,7 @@ const Div = styled.div`
 const Svg = styled.svg`
   width: 100%;
   min-width: ${getRems(200)};
-  overflow: visible;
+  overflow-x: visible;
   position: absolute;
   top: ${getRems(30)};
   transform: rotate(${({ open }) => (open ? '45deg' : '0')});
@@ -38,7 +38,7 @@ const H2 = styled.h2`
   color: rgb(33, 255, 33);
   z-index: 5;
   margin: 0;
-  font-size: 2em;
+  font-size: 1.5em;
   grid-column: 2;
   pointer-events: none;
   display: flex;
@@ -46,7 +46,7 @@ const H2 = styled.h2`
   transition: opacity 200ms cubic-bezier(0.67, 0.47, 0.23, 0.44);
   opacity: ${({ open }) => (open ? '1' : '0')};
   transition: transform 350ms cubic-bezier(0.67, 0.47, 0.23, 0.44);
-  transform: ${({ open }) => (open ? 'translateY(0%)' : 'translateY(100%)')};
+  transform: ${({ open }) => (open ? 'translateY(0%)' : 'translateY(50%)')};
 `;
 
 export { Div, H1, H2, Svg };
